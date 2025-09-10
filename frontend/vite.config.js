@@ -3,9 +3,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  root: "frontend",        // Vite looks for index.html here
   build: {
-    outDir: "../dist",     // output folder relative to root
+    outDir: "../dist",
     emptyOutDir: true
   },
   server: {
