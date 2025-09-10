@@ -3,17 +3,18 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  root: "frontend",        // Vite looks for index.html here
+  build: {
+    outDir: "../dist",     // output folder relative to root
+    emptyOutDir: true
+  },
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000", // backend port in local dev
+        target: "http://localhost:3000",
         changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
-  build: {
-    outDir: "dist",   // default build output
-    emptyOutDir: true // clean before building
+        secure: false
+      }
+    }
   }
 });
